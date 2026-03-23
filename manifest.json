@@ -1,0 +1,28 @@
+{
+	"manifest_version": 3,
+	"name": "抖音一键拉黑",
+	"description": "这是一个专门用于在抖音网页版快速拉黑博主的工具。在抖音主页浏览视频时，点击顶部导航中的“拉黑博主”按钮，便会开启一个新的后台标签页，访问博主主页，并模拟手动拉黑用户的操作进行拉黑。拉黑完毕后，会自动关闭该页面",
+	"version": "1.0",
+	"icons": {
+		"16": "images/icon16.png",
+		"32": "images/icon32.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"permissions": ["storage", "activeTab"],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://*.douyin.com/*"],
+			"js": ["utils.js", "content.js"]
+		}
+	],
+	"action": {
+		"default_icon": {
+			"16": "images/icon16.png",
+			"32": "images/icon32.png"
+		}
+	}
+}
